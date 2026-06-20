@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Practice Tracker</title>
+  <meta name="description" content="Tracker for DSA practice.">
+  <link rel="stylesheet" href="assets/index.css">
+</head>
+
+<body>
+  <div class="tracker-container">
+    <!-- Header -->
+    <header class="tracker-header">
+      <div>
+        <h1 id="main-title">DSA Practice Tracker</h1>
+        <p class="subtitle">Tracker for coding interview questions</p>
+      </div>
+      <button class="btn btn-reset" id="global-reset-btn">Reset All</button>
+    </header>
+
+    <!-- Stats Summary Bar -->
+    <section class="stats-summary" id="stats-panel">
+      <div class="stat-item">
+        <span class="label">Total Progress:</span>
+        <span class="value"><span id="solved-count">0</span> / <span id="total-count">0</span> (<span
+            id="percentage-label">0%</span>)</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Easy:</span>
+        <span class="value" id="easy-ratio">0/0</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Medium:</span>
+        <span class="value" id="medium-ratio">0/0</span>
+      </div>
+      <div class="stat-item">
+        <span class="label">Hard:</span>
+        <span class="value" id="hard-ratio">0/0</span>
+      </div>
+    </section>
+
+    <!-- Search & Filters -->
+    <section class="controls-panel">
+      <div class="search-box-wrapper">
+        <input type="text" id="search-input" placeholder="Search problems..." autocomplete="off">
+        <button id="search-clear-btn" class="clear-btn">&times;</button>
+      </div>
+
+      <div class="filters-row">
+        <!-- Difficulty filter -->
+        <div class="filter-group">
+          <span class="filter-label">Difficulty:</span>
+          <div class="tab-container" id="filter-difficulty">
+            <button class="tab-btn active" data-value="all">All</button>
+            <button class="tab-btn" data-value="Easy">Easy</button>
+            <button class="tab-btn" data-value="Medium">Medium</button>
+            <button class="tab-btn" data-value="Hard">Hard</button>
+          </div>
+        </div>
+
+        <!-- Status filter -->
+        <div class="filter-group">
+          <span class="filter-label">Status:</span>
+          <div class="tab-container" id="filter-status">
+            <button class="tab-btn active" data-value="all">All</button>
+            <button class="tab-btn" data-value="completed">Solved</button>
+            <button class="tab-btn" data-value="pending">Unsolved</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories List -->
+    <main class="categories-list" id="categories-list">
+      <div class="loading">Loading problems...</div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="assets/problems.js"></script>
+  <script src="assets/index.js"></script>
+</body>
+
+</html>
